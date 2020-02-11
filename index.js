@@ -10,7 +10,7 @@ app.use(logger);
 
 // Get Single Member
 app.get('/api/member/:id', (req, res) => {
-    res.json(members.filter(member => member.id === req.params.id));
+    res.json(members.filter(member => member.id === parseInt(req.params.id)));
 });
 
 // Gets All Members
