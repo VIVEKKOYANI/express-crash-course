@@ -8,6 +8,11 @@ const app = express();
 // Init middleware
 app.use(logger);
 
+// Get Single Member
+app.get('/api/member/:id', (req, res) => {
+    res.send(req.params.id);
+});
+
 // Gets All Members
 app.get('/api/members', (req, res) => {
     res.json(members);
