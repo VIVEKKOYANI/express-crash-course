@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const members = require('./Members');
-const logger = require('./logger');
+const logger = require('./middleware/logger');
 const app = express();
 
 
