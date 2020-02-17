@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const members = require('../../Members');
-
+const uuid = require('uuid');
 // Gets All Members
 router.get('/', (req, res) => {
     res.json(members);
@@ -20,7 +20,16 @@ router.get('/:id', (req, res) => {
 
 // create Member
 router.post('/', (req, res) => {
-    res.send(req.body); 
+    const newMember = {
+        id: uuid.v4(),
+        name: req.body.name,
+        email: req.body.email,
+        status: 'active'
+    }
+
+    if(!newMember.name || !newMember.email) {
+        res.status(400).json({msh: 'Please include a name and email'});
+    }
 })
 
 
