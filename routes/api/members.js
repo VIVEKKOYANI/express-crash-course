@@ -30,7 +30,10 @@ router.post('/', (req, res) => {
     if(!newMember.name || !newMember.email) {
         res.status(400).json({msh: 'Please include a name and email'});
     }
-})
+
+    members.push(newMember);
+    res.json(members);
+});
 
 
 module.exports = router;
