@@ -8,6 +8,10 @@ const app = express();
 // Init middleware
 app.use(logger);
 
+//Handlebars Middleware
+app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+app.set('view engine', 'handlebars');
+
 // Body parser Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
